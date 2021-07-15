@@ -1,6 +1,7 @@
 package net.neromc.prohub;
 
 import net.neromc.prohub.Commands.test;
+import net.neromc.prohub.Configs.Messages;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,14 +16,16 @@ public final class main extends JavaPlugin {
 
         System.out.println("ProHub || Loading...");
 
-        System.out.println("ProHub || Loading Config...");
+        System.out.println("ProHub || Loading Messages...");
 
         // Config
 
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
 
         //
 
-        System.out.println("ProHub || Config Done!");
+        System.out.println("ProHub || Messages Done!");
 
         System.out.println("ProHub || Loading Commands...");
 

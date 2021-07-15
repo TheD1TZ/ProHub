@@ -1,0 +1,97 @@
+# AUTHOR: Ditz Guntlisbergen (TheD1TZ)
+# WIKI: https://github.com/TheD1TZ/ProHub/wiki
+# Copyright Ditz Guntlisbergen 2021. All rights reserved.
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+# | Join Leave FirstJoin Messages            |
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+
+JoinMessage:
+
+  enabled: true
+  message: ''
+
+FirstJoin:
+
+  enabled: true
+  message: ''
+
+LeaveMessage:
+
+  enabled: true
+  message: ''
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+# | Player Hub/Spawn/Lobby                   |
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+Lobby:
+
+  enabled: true
+  location:
+    x: ''
+    y: ''
+    z: ''
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+# | SCOREBOARD                               |
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+
+Scoreboard:
+
+  enabled: true
+
+  title: ''
+
+  lines:
+    - ''
+    - ''
+    - ''
+    - ''
+    -
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+# | TABLIST                                  |
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+
+Tablist:
+
+  enabled: true
+
+  header:
+    - ''
+    - ''
+    - ''
+    - ''
+
+  footer:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+# | Anti Void Death                          |
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+
+AntiVoidDeath:
+
+  enabled: true
