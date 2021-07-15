@@ -1,0 +1,8 @@
+name: ProHub
+version: ${project.version}
+main: net.neromc.prohub.ProHub
+api-version: 1.16
+authors: [ DitzGuntlisbergen ]
+description:
+  A basic hub plugin made by: NeroMC Development
+website: neromc.net
