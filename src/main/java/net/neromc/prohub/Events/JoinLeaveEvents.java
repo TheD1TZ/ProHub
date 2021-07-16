@@ -1,6 +1,8 @@
 package net.neromc.prohub.Events;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.neromc.prohub.main;
+import net.neromc.prohub.utils.Utils;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -34,12 +36,13 @@ public class JoinLeaveEvents implements Listener {
 
 
         //JoinMessages
-        if(JoinMessageEnabled) {
-            ej.setJoinMessage(JoinMessage);
+        if (JoinMessageEnabled) {
+            String message = PlaceholderAPI.setPlaceholders(player,JoinMessage);
+            ej.setJoinMessage(Utils.Color(message));
         }
 
         //MOTD messages
-        if(MOTDEnabled) {
+        if (MOTDEnabled) {
             for (int i = 0; i < pl.getConfig().getList("MOTD.message").size(); i++) {
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', pl.getConfig().getList("MOTD.message").get(i).toString()));
             }
@@ -48,10 +51,12 @@ public class JoinLeaveEvents implements Listener {
 
     @EventHandler
     public void playerLeave(PlayerQuitEvent eq) {
+        Player player = eq.getPlayer();
 
         //LeaveMessages
-        if(LeaveMessageEnabled) {
-            eq.setQuitMessage(LeaveMessage);
+        if (LeaveMessageEnabled) {
+            String message = PlaceholderAPI.setPlaceholders(player,LeaveMessage);
+            eq.setQuitMessage(Utils.Color(message));
         }
     }
 }

@@ -28,17 +28,17 @@ enabled-worlds:
 JoinMessage:
 
   enabled: true
-  message: '{player} joined!'
+  message: '%player% joined!'
 
 FirstJoin:
 
   enabled: true
-  message: 'Welcome {player}!'
+  message: 'Welcome %player%!'
 
 LeaveMessage:
 
   enabled: true
-  message: '{player} left!'
+  message: '%player% left!'
 
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
