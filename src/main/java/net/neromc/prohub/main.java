@@ -1,7 +1,8 @@
 package net.neromc.prohub;
 
-import net.neromc.prohub.Commands.test;
-import net.neromc.prohub.Configs.Messages;
+import net.neromc.prohub.Events.JoinLeaveEvents;
+import net.neromc.prohub.utils.UpdateChecker;
+import net.neromc.prohub.utils.Utils;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -51,12 +52,21 @@ public final class main extends JavaPlugin {
         System.out.println("ProHub || Plugin Loaded");
         System.out.println("ProHub || All Rights Reserved");
 
+        //UpdateChecker
+
+        new UpdateChecker(this,94324).getLatestVersion(version -> {
+            if(this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                System.out.println("ProHub || Plugin is up to date!");
+            } else {
+                System.out.println("ProHub || Plugin has an update! Please update to the latest version!");
+            }
+        });
     }
 
 
     public void registerEvents() {
         PluginManager pm = getServer().getPluginManager();
-        pm.registerEvents(new test(this), this);
+        pm.registerEvents(new JoinLeaveEvents(), this);
 
 
     }

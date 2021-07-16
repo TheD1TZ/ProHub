@@ -3,33 +3,67 @@
 # Copyright Ditz Guntlisbergen 2021. All rights reserved.
 
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Check for latest SpigotMC updates.
+
+check-updates: true
+
+
+# List any worlds you want ProHub to manage.
+
+enabled-worlds:
+
+  worlds:
+    - world
+    - lobby
+    - spawn
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
 # | Join Leave FirstJoin Messages            |
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
 
 JoinMessage:
 
   enabled: true
-  message: ''
+  message: '{player} joined!'
 
 FirstJoin:
 
   enabled: true
-  message: ''
+  message: 'Welcome {player}!'
 
 LeaveMessage:
 
   enabled: true
-  message: ''
+  message: '{player} left!'
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+# | MOTD Message                             |
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+MOTD:
+  enabled: true
+  message:
+    - '&7-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+    - '&eWelcome to &lProHub'
+    - ''
+    - '&e&lWebsite: &fprohub.com'
+    - '&e&lDiscord: &fprohub.com/discord'
+    - ''
+    - '&7-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
 # | Player Hub/Spawn/Lobby                   |
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
 Lobby:
 
@@ -40,11 +74,11 @@ Lobby:
     z: ''
 
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
-# | SCOREBOARD                               |
+# | Scoreboard                               |
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
 
 Scoreboard:
@@ -61,11 +95,11 @@ Scoreboard:
     -
 
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
 # | TABLIST                                  |
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
 
 Tablist:
@@ -85,13 +119,58 @@ Tablist:
     - ''
     - ''
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
-# | Anti Void Death                          |
+# | World Settings                           |
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
 
-AntiVoidDeath:
 
-  enabled: true
+WorldSettings:
+
+  # Player
+
+  disable_hunger_loss: true
+
+  disable_fall_damage: true
+
+  disable_player_pvp: true
+
+  disable_void_death: true
+
+  disable_fire_damage: true
+
+  disable_drowning: true
+
+
+
+  # Misc
+
+  disable_weather_change: true
+
+  disable_death_message: true
+
+  disable_mob_spawning: true
+
+
+
+  # Item entities
+
+  disable_item_drop: true
+
+  disable_item_pickup: true
+
+
+
+  # Blocks
+
+  disable_block_break: true
+
+  disable_block_place: true
+
+  disable_block_interact: true
+
+  disable_block_burn: true
+
+  disable_block_fire_spread: true

@@ -12,7 +12,7 @@ public class AntiVoid implements Listener {
         if (e.getEntity() instanceof Player) {
             if (e.getCause().equals(EntityDamageEvent.DamageCause.VOID)){
                 e.setCancelled(true);
-                e.getEntity().teleport();
+                e.getEntity().teleport(((Player) e.getEntity()).getBedSpawnLocation());
             }
         }
     }

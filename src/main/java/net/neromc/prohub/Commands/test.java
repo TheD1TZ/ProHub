@@ -1,6 +1,6 @@
 package net.neromc.prohub.Commands;
 
-import net.neromc.prohub.Utils;
+import net.neromc.prohub.utils.Utils;
 import net.neromc.prohub.main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

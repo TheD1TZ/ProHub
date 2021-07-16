@@ -1,4 +1,4 @@
-package net.neromc.prohub;
+package net.neromc.prohub.utils;
 
 import org.bukkit.ChatColor;
 
