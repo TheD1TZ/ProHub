@@ -1,6 +1,6 @@
 package net.neromc.prohub.Events;
 
-import me.clip.placeholderapi.PlaceholderAPI;
+
 import net.neromc.prohub.main;
 import net.neromc.prohub.utils.Utils;
 import org.bukkit.ChatColor;
@@ -37,7 +37,7 @@ public class JoinLeaveEvents implements Listener {
 
         //JoinMessages
         if (JoinMessageEnabled) {
-            String message = PlaceholderAPI.setPlaceholders(player,JoinMessage);
+            String message = (JoinMessage);
             ej.setJoinMessage(Utils.Color(message));
         }
 
@@ -55,7 +55,7 @@ public class JoinLeaveEvents implements Listener {
 
         //LeaveMessages
         if (LeaveMessageEnabled) {
-            String message = PlaceholderAPI.setPlaceholders(player,LeaveMessage);
+            String message = (LeaveMessage);
             eq.setQuitMessage(Utils.Color(message));
         }
     }

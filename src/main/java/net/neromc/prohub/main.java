@@ -3,15 +3,12 @@ package net.neromc.prohub;
 import net.neromc.prohub.Events.JoinLeaveEvents;
 import net.neromc.prohub.Events.WorldSettings;
 import net.neromc.prohub.utils.Utils;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Level;
 
 public final class main extends JavaPlugin {
-
-    Plugin pl = main.getPlugin(main.class);
 
 
     public String prefix = Utils.Color("&e&lProHub &7&l| &7");
@@ -67,6 +64,7 @@ public final class main extends JavaPlugin {
     public void registerEvents() {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new WorldSettings(), this);
+        pm.registerEvents(new JoinLeaveEvents(), this);
 
 
     }
