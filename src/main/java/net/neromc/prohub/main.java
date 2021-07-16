@@ -1,6 +1,7 @@
 package net.neromc.prohub;
 
 import net.neromc.prohub.Events.JoinLeaveEvents;
+import net.neromc.prohub.Events.WorldSettings;
 import net.neromc.prohub.utils.UpdateChecker;
 import net.neromc.prohub.utils.Utils;
 import org.bukkit.plugin.PluginManager;
@@ -67,6 +68,7 @@ public final class main extends JavaPlugin {
     public void registerEvents() {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new JoinLeaveEvents(), this);
+        pm.registerEvents(new WorldSettings(), this);
 
 
     }
