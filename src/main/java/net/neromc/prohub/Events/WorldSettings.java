@@ -8,7 +8,10 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockBurnEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.block.BlockSpreadEvent;
-import org.bukkit.event.entity.*;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
@@ -32,7 +35,6 @@ public class WorldSettings implements Listener {
 
     boolean disable_weather_change = pl.getConfig().getBoolean("WorldSettings.disable_weather_change");
     boolean disable_death_message = pl.getConfig().getBoolean("WorldSettings.disable_death_message");
-    boolean disable_mob_spawning = pl.getConfig().getBoolean("WorldSettings.disable_mob_spawning");
 
     //Item entities
 
@@ -48,6 +50,7 @@ public class WorldSettings implements Listener {
     boolean disable_block_fire_spread = pl.getConfig().getBoolean("WorldSettings.disable_block_fire_spread");
 
     //Player
+
 
     @EventHandler
     public void hungerLoss(FoodLevelChangeEvent e) {
@@ -158,15 +161,6 @@ public class WorldSettings implements Listener {
         }
     }
 
-    @EventHandler
-    public void modSpawning(EntitySpawnEvent e) {
-        if(disable_mob_spawning) {
-            e.setCancelled(true);
-        }
-        if(!disable_mob_spawning) {
-            e.setCancelled(false);
-        }
-    }
 
     //Item entities
 

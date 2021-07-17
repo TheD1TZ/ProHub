@@ -38,8 +38,9 @@ public class UpdateChecker {
 
     //Constants
     private static final int ID = 94324;
-    private static final String ERR_MSG = "&e&lProHub &7&l| &cUpdate checker failed!";
-    private static final String UPDATE_MSG = "&e&lProHub &7&l| &fA new update is available at:&b https://www.spigotmc.org/resources/" + ID + "/updates";
+    private static final String ERR_MSG = "&e&lProHub &7&l|| &cUpdate checker failed!";
+    private static final String UPDATE_MSG = "&e&lProHub &7&l|| &fA new update is available at:&e https://www.spigotmc.org/resources/" + ID + "/updates";
+    private static final String UPDATE_MSG_CONSOLE = "ProHub || A new update is available at: https://www.spigotmc.org/resources/" + ID + "/updates";
     private static final Permission UPDATE_PERM = new Permission(Permissions.UPDATE_NOTIFICATION.getPermission(), PermissionDefault.TRUE);
     private static final long CHECK_INTERVAL = 12_000;
 
@@ -69,7 +70,7 @@ public class UpdateChecker {
                     //Check if the requested version is the same as the one in your plugin.yml.
                     if (localPluginVersion.equals(spigotPluginVersion)) return;
 
-                    pl.getLogger().log(Level.WARNING, ChatColor.translateAlternateColorCodes('&', UPDATE_MSG));
+                    pl.getLogger().log(Level.WARNING, UPDATE_MSG_CONSOLE);
 
                     //Register the PlayerJoinEvent
                     Bukkit.getScheduler().runTask(javaPlugin, () -> Bukkit.getPluginManager().registerEvents(new Listener() {

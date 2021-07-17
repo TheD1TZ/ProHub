@@ -8,16 +8,6 @@
 check-updates: true
 
 
-# List any worlds you want ProHub to manage.
-
-enabled-worlds:
-
-  worlds:
-    - world
-    - lobby
-    - spawn
-
-
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
 # | Join Leave FirstJoin Messages            |
@@ -28,17 +18,35 @@ enabled-worlds:
 JoinMessage:
 
   enabled: true
-  message: '%player% joined!'
+  message: '&7[&a+&7] &f%player_name% joined!'
 
 FirstJoin:
 
   enabled: true
-  message: 'Welcome %player%!'
+  message: '%player_name% joined for the first time!'
 
 LeaveMessage:
 
   enabled: true
-  message: '%player% left!'
+  message: '&7[&c-&7] &f%player_name% left!'
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+# | Title Message                            |
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+
+Title:
+
+  enabled: true
+  title: '&f&lWelcome &e&l%player_name%'
+  subtitle: '&fto &e&lProHub'
+
+  fadein: 15
+  duration: 55
+  fadeout: 15
 
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
@@ -48,7 +56,9 @@ LeaveMessage:
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
 MOTD:
+
   enabled: true
+
   message:
     - '&7-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
     - '&eWelcome to &lProHub'
@@ -85,14 +95,16 @@ Scoreboard:
 
   enabled: true
 
-  title: ''
+  title: '&7-=&e&lProHub&7=-'
 
   lines:
     - ''
+    - 'Player: %player_name%'
+    - ''
+    - 'Economy: %%'
     - ''
     - ''
     - ''
-    -
 
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
@@ -106,6 +118,11 @@ Tablist:
 
   enabled: true
 
+  # Should we refresh the tablist (update placeholders)?
+  refresh:
+    enabled: true
+    rate: 400 # In ticks (20 ticks = 1 second)
+
   header:
     - ''
     - ''
@@ -116,8 +133,37 @@ Tablist:
     - ''
     - ''
     - ''
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+# | Boss Bar                                 |
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+
+BossBar:
+
+  enabled: true
+  duration: 55
+  titles:
     - ''
     - ''
+    - ''
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+# | Teleport Bow                             |
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+
+TeleportBow:
+
+  enabled: true
+  name: '&eTeleportBow'
+  description: '&fTeleport arround the lobby'
+  sound: 'ENTITY_DRAGON_FIREBALL_EXPLODE'
+  slot: 0
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
@@ -150,8 +196,6 @@ WorldSettings:
   disable_weather_change: true
 
   disable_death_message: true
-
-  disable_mob_spawning: true
 
 
 

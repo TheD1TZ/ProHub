@@ -1,5 +1,5 @@
 name: ProHub
-version: 1.0
+version: 0.0
 main: net.neromc.prohub.main
 api-version: 1.16
 authors: [ DitzGuntlisbergen ]
@@ -7,3 +7,7 @@ description: A basic hub plugin made by NeroMC Development
 softdepend:
   - PlaceholderAPI
 website: neromc.net
+commands:
+  tpbow:
+    description: Teleport anywhere in the lobby
+    usage: /<command>

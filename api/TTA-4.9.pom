@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.Herbystar</groupId>
+  <artifactId>TTA</artifactId>
+  <version>4.9</version>
+  
+  <build>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+        </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+ 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+ 
+    
+    
+  <dependencies>
+  <!-- Spigotmc -->
+      <dependency>
+  		<groupId>org.spigotmc</groupId>
+  		<artifactId>spigot-api</artifactId>
+  		<version>1.12.2-R0.1-SNAPSHOT</version>
+  		<scope>provided</scope>
+    </dependency>
+        <dependency>
+  		<groupId>org.spigotmc</groupId>
+  		<artifactId>spigot-api</artifactId>
+  		<version>1.11.2-R0.1-SNAPSHOT</version>
+  		<scope>provided</scope>
+    </dependency>
+  <dependency>
+  		<groupId>org.spigotmc</groupId>
+  		<artifactId>spigot-api</artifactId>
+  		<version>1.10-R0.1-SNAPSHOT</version>
+  		<scope>provided</scope>
+  </dependency>
+  </dependencies>
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>h2667639-releases</name>
+        <url>http://81.169.182.228:8081/artifactory/releases</url>
+    </repository>
+    <snapshotRepository> 
+        <id>snapshots</id>
+        <name>h2667639-snapshots</name>
+        <url>http://81.169.182.228:8081/artifactory/snapshots</url>
+    </snapshotRepository> 
+</distributionManagement>  
+</project>
