@@ -97,7 +97,6 @@ public final class main extends JavaPlugin {
 
 //Todo: Lobby Command
 //Todo: Scoreboard
-//Todo: Tablist
 //Todo: Teleport Bow
 //Todo: Jump Pads
 //Todo: Bossbars

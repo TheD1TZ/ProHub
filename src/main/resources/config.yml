@@ -71,7 +71,7 @@ MOTD:
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
-# | Player Hub/Spawn/Lobby                   |
+# | Server Hub/Spawn/Lobby                   |
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
@@ -124,15 +124,16 @@ Tablist:
     rate: 400 # In ticks (20 ticks = 1 second)
 
   header:
-    - ''
-    - ''
-    - ''
+    - '&7-=&e&lProHub&7=-'
+    - '&7This is a second line'
+    - '&7Change these lines in the config file!'
     - ''
 
   footer:
     - ''
-    - ''
-    - ''
+    - 'This is a footer change this line in the config file!'
+    - 'This a nother line'
+    - 'You can also use placeholders like %player_name%'
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
@@ -149,21 +150,6 @@ BossBar:
     - ''
     - ''
     - ''
-
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
-
-# | Teleport Bow                             |
-
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
-
-
-TeleportBow:
-
-  enabled: true
-  name: '&eTeleportBow'
-  description: '&fTeleport arround the lobby'
-  sound: 'ENTITY_DRAGON_FIREBALL_EXPLODE'
-  slot: 0
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 

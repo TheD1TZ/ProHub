@@ -13,6 +13,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 
+import java.util.List;
+
 public class JoinLeaveEvents implements Listener {
 
     Plugin pl = main.getPlugin(main.class);
@@ -36,10 +38,19 @@ public class JoinLeaveEvents implements Listener {
     boolean MOTDEnabled = pl.getConfig().getBoolean("MOTD.enabled");
 
     boolean ScoreboardEnabled = pl.getConfig().getBoolean("Scoreboard.enabled");
+    String ScoreboardTitle = pl.getConfig().getString("Scoreboard.title");
+    String ScoreboardLines = pl.getConfig().getString("Scoreboard.lines");
 
-    String TabListHeader = pl.getConfig().getString("Tablist.header");
-    String TabListFooter = pl.getConfig().getString("Tablist.footer");
+    List TabListHeader = pl.getConfig().getStringList("Tablist.header");
+    List TabListFooter = pl.getConfig().getStringList("Tablist.footer");
     boolean TablistEnabled = pl.getConfig().getBoolean("Tablist.enabled");
+
+    public String TLHeader(List<String> list) {
+        return String.join("\n", list);
+    }
+    public String TLFooter(List<String> list) {
+        return String.join("\n", list);
+    }
 
     @EventHandler
     public void playerJoin(PlayerJoinEvent ej) {
@@ -68,7 +79,14 @@ public class JoinLeaveEvents implements Listener {
         }
 
         //Scoreboard
-        //todo: scoreboard
+        if (ScoreboardEnabled) {
+
+            String Title = PlaceholderAPI.setPlaceholders(player, ScoreboardTitle);
+            String Lines = PlaceholderAPI.setPlaceholders(player, ScoreboardLines);
+
+
+
+        }
 
         //Join Title
         if (TitleEnabled) {
@@ -79,9 +97,14 @@ public class JoinLeaveEvents implements Listener {
 
         //TabList
         if (TablistEnabled) {
-            String Header = PlaceholderAPI.setPlaceholders(player, TabListHeader);
-            String Footer = PlaceholderAPI.setPlaceholders(player, TabListFooter);
-            TTA_Methods.sendTablist(player, TabListHeader, TabListFooter);
+
+
+
+            String Header = PlaceholderAPI.setPlaceholders(player, TLHeader(TabListHeader));
+            String Footer = PlaceholderAPI.setPlaceholders(player, TLHeader(TabListFooter));
+            player.setPlayerListHeaderFooter(Header,Footer);
+
+
         }
     }
 

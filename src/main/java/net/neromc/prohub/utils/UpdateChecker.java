@@ -30,12 +30,6 @@ public class UpdateChecker {
         https://www.spigotmc.org/threads/async-update-checker-for-premium-and-regular-plugins.327921/
     */
 
-    Plugin pl = main.getPlugin(main.class);
-
-    private final JavaPlugin javaPlugin;
-    private final String localPluginVersion;
-    private String spigotPluginVersion;
-
     //Constants
     private static final int ID = 94324;
     private static final String ERR_MSG = "&e&lProHub &7&l|| &cUpdate checker failed!";
@@ -43,6 +37,10 @@ public class UpdateChecker {
     private static final String UPDATE_MSG_CONSOLE = "ProHub || A new update is available at: https://www.spigotmc.org/resources/" + ID + "/updates";
     private static final Permission UPDATE_PERM = new Permission(Permissions.UPDATE_NOTIFICATION.getPermission(), PermissionDefault.TRUE);
     private static final long CHECK_INTERVAL = 12_000;
+    private final JavaPlugin javaPlugin;
+    private final String localPluginVersion;
+    Plugin pl = main.getPlugin(main.class);
+    private String spigotPluginVersion;
 
 
     public UpdateChecker(final JavaPlugin javaPlugin) {

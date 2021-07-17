@@ -1,6 +1,7 @@
 package net.neromc.prohub.Events;
 
 import net.neromc.prohub.main;
+import net.neromc.prohub.utils.Permissions;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -50,10 +51,9 @@ public class WorldSettings implements Listener {
     boolean disable_block_fire_spread = pl.getConfig().getBoolean("WorldSettings.disable_block_fire_spread");
 
     //Player
-
-
     @EventHandler
     public void hungerLoss(FoodLevelChangeEvent e) {
+        if(!e.getEntity().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_hunger_loss){
             e.setCancelled(true);
             e.setFoodLevel(20);
@@ -62,9 +62,11 @@ public class WorldSettings implements Listener {
             e.setCancelled(false);
         }
     }
+    }
 
     @EventHandler
     public void fallDamage(EntityDamageEvent e) {
+        if(!e.getEntity().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_fall_damage) {
             if (e.getCause().equals(EntityDamageEvent.DamageCause.FALL)){
                 e.setCancelled(true);
@@ -72,10 +74,11 @@ public class WorldSettings implements Listener {
                 e.setCancelled(false);
             }
         }
-    }
+    }}
 
     @EventHandler
     public void playerPvP(EntityDamageByEntityEvent e) {
+        if(!e.getEntity().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_player_pvp) {
             if (e.getDamager() instanceof Player){
                 if (e.getEntity() instanceof Player) {
@@ -90,10 +93,11 @@ public class WorldSettings implements Listener {
                 }
             }
         }
-    }
+    }}
 
     @EventHandler
     public void AntiVoid(EntityDamageEvent e) {
+        if(!e.getEntity().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_void_death) {
             if (e.getEntity() instanceof Player) {
                 if (e.getCause().equals(EntityDamageEvent.DamageCause.VOID)) {
@@ -109,10 +113,11 @@ public class WorldSettings implements Listener {
                 }
             }
         }
-    }
+    }}
 
     @EventHandler
     public void fireDamage(EntityDamageEvent e) {
+        if(!e.getEntity().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_fire_damage) {
             if (e.getCause().equals(EntityDamageEvent.DamageCause.FIRE)) {
                 e.setCancelled(true);
@@ -123,10 +128,11 @@ public class WorldSettings implements Listener {
                 e.setCancelled(false);
             }
         }
-    }
+    }}
 
     @EventHandler
     public void Drowning(EntityDamageEvent e) {
+        if(!e.getEntity().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_drowning) {
             if (e.getCause().equals(EntityDamageEvent.DamageCause.DROWNING)) {
                 e.setCancelled(true);
@@ -137,7 +143,7 @@ public class WorldSettings implements Listener {
                 e.setCancelled(false);
             }
         }
-    }
+    }}
 
     //Misc
 
@@ -153,68 +159,74 @@ public class WorldSettings implements Listener {
 
     @EventHandler
     public void deathMessage(PlayerDeathEvent e) {
+        if(!e.getEntity().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_death_message) {
             e.setDeathMessage("");
         }
         if(!disable_death_message) {
             return;
         }
-    }
+    }}
 
 
     //Item entities
 
     @EventHandler
     public void itemDropped(PlayerDropItemEvent e) {
+        if(!e.getPlayer().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_item_drop) {
             e.setCancelled(true);
         }
         if(!disable_item_drop) {
             e.setCancelled(false);
         }
-    }
+    }}
 
     @EventHandler
     public void itemPickedUp(PlayerPickupItemEvent e) {
+        if(!e.getPlayer().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_item_pickup) {
             e.setCancelled(true);
         }
         if(!disable_item_pickup) {
             e.setCancelled(false);
         }
-    }
+    }}
 
     //Blocks
 
     @EventHandler
     public void blockBreak(BlockBreakEvent e) {
+        if(!e.getPlayer().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_block_break) {
             e.setCancelled(true);
         }
         if(!disable_block_break) {
             e.setCancelled(false);
         }
-    }
+    }}
 
     @EventHandler
     public void blockPlace(BlockPlaceEvent e) {
+        if(!e.getPlayer().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_block_place) {
             e.setCancelled(true);
         }
         if(!disable_block_place) {
             e.setCancelled(false);
         }
-    }
+    }}
 
     @EventHandler
     public void blockInteraction(PlayerInteractEvent e) {
+        if(!e.getPlayer().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_block_interact) {
             e.setCancelled(true);
         }
         if(!disable_block_interact) {
             e.setCancelled(false);
         }
-    }
+    }}
 
     @EventHandler
     public void blockBurn(BlockBurnEvent e) {
