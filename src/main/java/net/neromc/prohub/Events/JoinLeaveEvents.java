@@ -6,6 +6,7 @@ import net.neromc.prohub.main;
 import net.neromc.prohub.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -36,6 +37,7 @@ public class JoinLeaveEvents implements Listener {
     boolean FirstJoinMessageEnabled = pl.getConfig().getBoolean("FirstJoin.enabled");
 
     boolean MOTDEnabled = pl.getConfig().getBoolean("MOTD.enabled");
+    List MOTDmessage = pl.getConfig().getList("MOTD.message");
 
     boolean ScoreboardEnabled = pl.getConfig().getBoolean("Scoreboard.enabled");
     String ScoreboardTitle = pl.getConfig().getString("Scoreboard.title");
@@ -44,6 +46,8 @@ public class JoinLeaveEvents implements Listener {
     List TabListHeader = pl.getConfig().getStringList("Tablist.header");
     List TabListFooter = pl.getConfig().getStringList("Tablist.footer");
     boolean TablistEnabled = pl.getConfig().getBoolean("Tablist.enabled");
+
+    boolean SpawnJoinEnabled = pl.getConfig().getBoolean("Lobby.enabled");
 
     public String TLHeader(List<String> list) {
         return String.join("\n", list);
@@ -56,6 +60,10 @@ public class JoinLeaveEvents implements Listener {
     public void playerJoin(PlayerJoinEvent ej) {
         Player player = ej.getPlayer();
 
+        //Spawn Join
+        if (SpawnJoinEnabled) {
+
+        }
 
         //JoinMessages
         if (JoinMessageEnabled) {
@@ -74,16 +82,17 @@ public class JoinLeaveEvents implements Listener {
         //MOTD messages
         if (MOTDEnabled) {
             for (int i = 0; i < pl.getConfig().getList("MOTD.message").size(); i++) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&', pl.getConfig().getList("MOTD.message").get(i).toString()));
+
+                List MOTDmsg = PlaceholderAPI.setPlaceholders(player, MOTDmessage);
+
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', MOTDmsg.get(i).toString()));
             }
         }
 
         //Scoreboard
         if (ScoreboardEnabled) {
-
             String Title = PlaceholderAPI.setPlaceholders(player, ScoreboardTitle);
             String Lines = PlaceholderAPI.setPlaceholders(player, ScoreboardLines);
-
 
 
         }
@@ -97,9 +106,6 @@ public class JoinLeaveEvents implements Listener {
 
         //TabList
         if (TablistEnabled) {
-
-
-
             String Header = PlaceholderAPI.setPlaceholders(player, TLHeader(TabListHeader));
             String Footer = PlaceholderAPI.setPlaceholders(player, TLHeader(TabListFooter));
             player.setPlayerListHeaderFooter(Header,Footer);
@@ -119,6 +125,5 @@ public class JoinLeaveEvents implements Listener {
         }
     }
 
-    //Scoreboard
 
 }

@@ -1,18 +1,17 @@
 package net.neromc.prohub;
 
+import net.neromc.prohub.Commands.Spawn;
 import net.neromc.prohub.Events.JoinLeaveEvents;
 import net.neromc.prohub.Events.WorldSettings;
+import net.neromc.prohub.Managers.CommandManager;
 import net.neromc.prohub.utils.Metrics;
 import net.neromc.prohub.utils.UpdateChecker;
-import net.neromc.prohub.utils.Utils;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Level;
 
 public final class main extends JavaPlugin {
-
-    public static String prefix = Utils.Color("&e&lProHub &7&l| &7");
 
     @Override
     public void onEnable() {
@@ -85,19 +84,25 @@ public final class main extends JavaPlugin {
 
     public void registerCommands() {
 
+        getCommand("prohub").setExecutor(new CommandManager());
+        getCommand("spawn").setExecutor(new Spawn());
 
 
     }
-
-
 }
 
 
 
 
-//Todo: Lobby Command
 //Todo: Scoreboard
-//Todo: Teleport Bow
 //Todo: Jump Pads
 //Todo: Bossbars
 //Todo: bStats
+//Todo: Command Disabler
+
+/*Todo: Commands
+    - /ProHub Reload
+    - /ProHub SetHub
+    - /Hub
+    - /Lobby
+ */

@@ -2,9 +2,14 @@ package net.neromc.prohub.utils;
 
 public enum Permissions {
 
-    //Basic Perms
+    //Player Perms
+    DISABLED_COMMANDS("disable.commands"),
+    COMMAND_PROHUB_SPAWN("command.spawn"),
+
+    //Staff Perms
     COMMAND_PROHUB_HELP("command.help"),
     COMMAND_PROHUB_RELOAD("command.reload"),
+    COMMAND_PROHUB_SETSPAWN("command.setspawn"),
     UPDATE_NOTIFICATION("update.notify"),
     WORLD_SETTINGS_BYPASS("worldsettings.bypass"),
 

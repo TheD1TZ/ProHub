@@ -97,7 +97,6 @@ public class WorldSettings implements Listener {
 
     @EventHandler
     public void AntiVoid(EntityDamageEvent e) {
-        if(!e.getEntity().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_void_death) {
             if (e.getEntity() instanceof Player) {
                 if (e.getCause().equals(EntityDamageEvent.DamageCause.VOID)) {
@@ -105,7 +104,6 @@ public class WorldSettings implements Listener {
                     e.getEntity().teleport(((Player) e.getEntity()).getBedSpawnLocation());
                 }
             }
-        }
         if(!disable_void_death) {
             if (e.getEntity() instanceof Player) {
                 if (e.getCause().equals(EntityDamageEvent.DamageCause.VOID)) {

@@ -1,5 +1,5 @@
 name: ProHub
-version: 0.0
+version: 0.2
 main: net.neromc.prohub.main
 api-version: 1.16
 authors: [ DitzGuntlisbergen ]
@@ -8,6 +8,10 @@ softdepend:
   - PlaceholderAPI
 website: neromc.net
 commands:
-  tpbow:
-    description: Teleport anywhere in the lobby
-    usage: /<command>
+  prohub:
+    description: The main command for ProHub.
+  spawn:
+    description: Send the player to the server spawnpoint.
+    aliases:
+      - lobby
+      - hub

@@ -7,6 +7,10 @@
 
 check-updates: true
 
+# Set the prefix of the plugin!
+
+Prefix: "&e&lProHub &7&l| "
+
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
@@ -18,17 +22,17 @@ check-updates: true
 JoinMessage:
 
   enabled: true
-  message: '&7[&a+&7] &f%player_name% joined!'
+  message: "&7[&a+&7] &f%player_name% joined!"
 
 FirstJoin:
 
   enabled: true
-  message: '%player_name% joined for the first time!'
+  message: "%player_name% joined for the first time!"
 
 LeaveMessage:
 
   enabled: true
-  message: '&7[&c-&7] &f%player_name% left!'
+  message: "&7[&c-&7] &f%player_name% left!"
 
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
@@ -41,8 +45,8 @@ LeaveMessage:
 Title:
 
   enabled: true
-  title: '&f&lWelcome &e&l%player_name%'
-  subtitle: '&fto &e&lProHub'
+  title: "&f&lWelcome &e&l%player_name%"
+  subtitle: "&fto &e&lProHub"
 
   fadein: 15
   duration: 55
@@ -60,13 +64,13 @@ MOTD:
   enabled: true
 
   message:
-    - '&7-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
-    - '&eWelcome to &lProHub'
-    - ''
-    - '&e&lWebsite: &fprohub.com'
-    - '&e&lDiscord: &fprohub.com/discord'
-    - ''
-    - '&7-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+    - "&7-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
+    - "&eWelcome to &lProHub"
+    - ""
+    - "&e&lWebsite: &fprohub.com"
+    - "&e&lDiscord: &fprohub.com/discord"
+    - ""
+    - "&7-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
@@ -78,10 +82,13 @@ MOTD:
 Lobby:
 
   enabled: true
+  world:
   location:
-    x: ''
-    y: ''
-    z: ''
+    x:
+    y:
+    z:
+    yaw:
+    pitch:
 
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
@@ -95,16 +102,16 @@ Scoreboard:
 
   enabled: true
 
-  title: '&7-=&e&lProHub&7=-'
+  title: "&7-=&e&lProHub&7=-"
 
   lines:
-    - ''
-    - 'Player: %player_name%'
-    - ''
-    - 'Economy: %%'
-    - ''
-    - ''
-    - ''
+    - ""
+    - "Player: %player_name%"
+    - ""
+    - "Economy: %%"
+    - ""
+    - ""
+    - ""
 
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
@@ -124,16 +131,16 @@ Tablist:
     rate: 400 # In ticks (20 ticks = 1 second)
 
   header:
-    - '&7-=&e&lProHub&7=-'
-    - '&7This is a second line'
-    - '&7Change these lines in the config file!'
-    - ''
+    - "&7-=&e&lProHub&7=-"
+    - "&7This is a second line"
+    - "&7Change these lines in the config file!"
+    - ""
 
   footer:
-    - ''
-    - 'This is a footer change this line in the config file!'
-    - 'This a nother line'
-    - 'You can also use placeholders like %player_name%'
+    - ""
+    - "&7This is a footer change this line in the config file!"
+    - "&7This a nother line"
+    - "&7You can also use placeholders &l(PlaceholderAPI needed!)"
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
@@ -147,9 +154,9 @@ BossBar:
   enabled: true
   duration: 55
   titles:
-    - ''
-    - ''
-    - ''
+    - ""
+    - ""
+    - ""
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
