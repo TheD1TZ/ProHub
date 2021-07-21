@@ -1,5 +1,6 @@
 package net.neromc.prohub.Events;
 
+import net.neromc.prohub.command.commands.SpawnCommand;
 import net.neromc.prohub.main;
 import net.neromc.prohub.utils.Permissions;
 import org.bukkit.entity.Player;
@@ -97,11 +98,14 @@ public class WorldSettings implements Listener {
 
     @EventHandler
     public void AntiVoid(EntityDamageEvent e) {
+
+        Player player = (Player) e.getEntity();
+
         if(disable_void_death) {
             if (e.getEntity() instanceof Player) {
                 if (e.getCause().equals(EntityDamageEvent.DamageCause.VOID)) {
                     e.setCancelled(true);
-                    e.getEntity().teleport(((Player) e.getEntity()).getBedSpawnLocation());
+                    SpawnCommand.SpawnTeleport(player);
                 }
             }
         if(!disable_void_death) {

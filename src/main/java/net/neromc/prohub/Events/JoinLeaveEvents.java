@@ -1,7 +1,7 @@
 package net.neromc.prohub.Events;
 
 import me.clip.placeholderapi.PlaceholderAPI;
-import net.neromc.prohub.Commands.Spawn;
+import net.neromc.prohub.command.commands.SpawnCommand;
 import net.neromc.prohub.main;
 import net.neromc.prohub.utils.Utils;
 import org.bukkit.Bukkit;
@@ -13,10 +13,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.plugin.Plugin;
 
 import java.util.List;
 import java.util.Objects;
+
+import static net.neromc.prohub.Managers.BossBarManager.createBossBar;
 
 public class JoinLeaveEvents implements Listener {
 
@@ -28,42 +29,38 @@ public class JoinLeaveEvents implements Listener {
 
 
 
+    String JoinMessage = main.getInstance().getConfig().getString("JoinMessage.message");
+    boolean JoinMessageEnabled = main.getInstance().getConfig().getBoolean("JoinMessage.enabled");
 
-    Plugin pl = main.getPlugin(main.class);
+    String LeaveMessage = main.getInstance().getConfig().getString("LeaveMessage.message");
+    boolean LeaveMessageEnabled = main.getInstance().getConfig().getBoolean("LeaveMessage.enabled");
 
-    String JoinMessage = pl.getConfig().getString("JoinMessage.message");
-    boolean JoinMessageEnabled = pl.getConfig().getBoolean("JoinMessage.enabled");
+    String TitleTitle = main.getInstance().getConfig().getString("Title.title");
+    String TitleSubTitle = main.getInstance().getConfig().getString("Title.subtitle");
+    boolean TitleEnabled = main.getInstance().getConfig().getBoolean("Title.enabled");
+    int TitleFadein = main.getInstance().getConfig().getInt("Title.fadein");
+    int TitleFadeout = main.getInstance().getConfig().getInt("Title.fadeout");
+    int TitleDuration = main.getInstance().getConfig().getInt("Title.duration");
 
-    String LeaveMessage = pl.getConfig().getString("LeaveMessage");
-    boolean LeaveMessageEnabled = pl.getConfig().getBoolean("LeaveMessage.enabled");
+    String FirstJoinMessage = main.getInstance().getConfig().getString("FirstJoin.message");
+    boolean FirstJoinMessageEnabled = main.getInstance().getConfig().getBoolean("FirstJoin.enabled");
 
-    String TitleTitle = pl.getConfig().getString("Title.title");
-    String TitleSubTitle = pl.getConfig().getString("Title.subtitle");
-    boolean TitleEnabled = pl.getConfig().getBoolean("Title.enabled");
-    int TitleFadein = pl.getConfig().getInt("Title.fadein");
-    int TitleFadeout = pl.getConfig().getInt("Title.fadeout");
-    int TitleDuration = pl.getConfig().getInt("Title.duration");
+    boolean MOTDEnabled = main.getInstance().getConfig().getBoolean("MOTD.enabled");
+    List MOTDmessage = main.getInstance().getConfig().getList("MOTD.message");
 
-    String FirstJoinMessage = pl.getConfig().getString("FirstJoin.message");
-    boolean FirstJoinMessageEnabled = pl.getConfig().getBoolean("FirstJoin.enabled");
+    boolean ScoreboardEnabled = main.getInstance().getConfig().getBoolean("Scoreboard.enabled");
+    String ScoreboardTitle = main.getInstance().getConfig().getString("Scoreboard.title");
+    String ScoreboardLines = main.getInstance().getConfig().getString("Scoreboard.lines");
 
-    boolean MOTDEnabled = pl.getConfig().getBoolean("MOTD.enabled");
-    List MOTDmessage = pl.getConfig().getList("MOTD.message");
+    boolean BossBarEnabled = main.getInstance().getConfig().getBoolean("BossBar.enabled");
 
-    boolean ScoreboardEnabled = pl.getConfig().getBoolean("Scoreboard.enabled");
-    String ScoreboardTitle = pl.getConfig().getString("Scoreboard.title");
-    String ScoreboardLines = pl.getConfig().getString("Scoreboard.lines");
+    List TabListHeader = main.getInstance().getConfig().getStringList("Tablist.header");
+    List TabListFooter = main.getInstance().getConfig().getStringList("Tablist.footer");
+    boolean TablistEnabled = main.getInstance().getConfig().getBoolean("Tablist.enabled");
 
-    List TabListHeader = pl.getConfig().getStringList("Tablist.header");
-    List TabListFooter = pl.getConfig().getStringList("Tablist.footer");
-    boolean TablistEnabled = pl.getConfig().getBoolean("Tablist.enabled");
+    boolean SpawnJoinEnabled = main.getInstance().getConfig().getBoolean("Lobby.enabled");
 
-    boolean SpawnJoinEnabled = pl.getConfig().getBoolean("Lobby.enabled");
-
-    public String TLHeader(List<String> list) {
-        return String.join("\n", list);
-    }
-    public String TLFooter(List<String> list) {
+    public String TabList(List<String> list) {
         return String.join("\n", list);
     }
 
@@ -74,16 +71,11 @@ public class JoinLeaveEvents implements Listener {
         //Spawn Join
         if (SpawnJoinEnabled) {
 
-            World world = Bukkit.getWorld(Objects.requireNonNull(plugin.getConfig().getString("Lobby.world")));
-            double x = plugin.getConfig().getDouble("Lobby.location.x");
-            double y = plugin.getConfig().getDouble("Lobby.location.y");
-            double z = plugin.getConfig().getDouble("Lobby.location.z");
-            Float pitch = (Float) plugin.getConfig().get("Lobby.location.pitch");
-            Float yaw = (Float) plugin.getConfig().get("Lobby.location.yaw");
-            Location location = new Location(world, x, y, z, yaw,pitch);
+            if (main.getInstance().getConfig().getString("Lobby.world") != null) {
 
-            player.teleport(location);
+                SpawnCommand.SpawnTeleport(player);
 
+            }
         }
 
         //JoinMessages
@@ -102,7 +94,7 @@ public class JoinLeaveEvents implements Listener {
 
         //MOTD messages
         if (MOTDEnabled) {
-            for (int i = 0; i < pl.getConfig().getList("MOTD.message").size(); i++) {
+            for (int i = 0; i < main.getInstance().getConfig().getList("MOTD.message").size(); i++) {
 
                 List MOTDmsg = PlaceholderAPI.setPlaceholders(player, MOTDmessage);
 
@@ -114,8 +106,6 @@ public class JoinLeaveEvents implements Listener {
         if (ScoreboardEnabled) {
             String Title = PlaceholderAPI.setPlaceholders(player, ScoreboardTitle);
             String Lines = PlaceholderAPI.setPlaceholders(player, ScoreboardLines);
-
-
         }
 
         //Join Title
@@ -127,11 +117,15 @@ public class JoinLeaveEvents implements Listener {
 
         //TabList
         if (TablistEnabled) {
-            String Header = PlaceholderAPI.setPlaceholders(player, TLHeader(TabListHeader));
-            String Footer = PlaceholderAPI.setPlaceholders(player, TLHeader(TabListFooter));
+            String Header = PlaceholderAPI.setPlaceholders(player, TabList(TabListHeader));
+            String Footer = PlaceholderAPI.setPlaceholders(player, TabList(TabListFooter));
             player.setPlayerListHeaderFooter(Header,Footer);
+        }
 
-
+        //Bossbar
+        if (BossBarEnabled) {
+            //createBossBar(player);
+            //WIP
         }
     }
 

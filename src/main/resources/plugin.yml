@@ -1,5 +1,5 @@
 name: ProHub
-version: 0.2
+version: ${project.version}
 main: net.neromc.prohub.main
 api-version: 1.16
 authors: [ DitzGuntlisbergen ]

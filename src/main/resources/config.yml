@@ -93,29 +93,6 @@ Lobby:
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
-# | Scoreboard                               |
-
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
-
-
-Scoreboard:
-
-  enabled: true
-
-  title: "&7-=&e&lProHub&7=-"
-
-  lines:
-    - ""
-    - "Player: %player_name%"
-    - ""
-    - "Economy: %%"
-    - ""
-    - ""
-    - ""
-
-
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
-
 # | TABLIST                                  |
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
@@ -142,20 +119,41 @@ Tablist:
     - "&7This a nother line"
     - "&7You can also use placeholders &l(PlaceholderAPI needed!)"
 
+
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
-# | Boss Bar                                 |
+# | Scoreboard      THIS FEATURE IS W.I.P    |
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+
+Scoreboard:
+
+  enabled: false
+
+  title: "&7-=&e&lProHub&7=-"
+
+  lines:
+    - ""
+    - "Player: %player_name%"
+    - ""
+    - "Economy: %%"
+    - ""
+    - ""
+    - ""
+    -
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+# | Boss Bar          THIS FEATURE IS W.I.P  |
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
 
 BossBar:
 
-  enabled: true
-  duration: 55
-  titles:
-    - ""
-    - ""
+  enabled: false
+  title:
     - ""
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
