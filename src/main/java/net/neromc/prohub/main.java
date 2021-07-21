@@ -6,6 +6,7 @@ import net.neromc.prohub.Events.WorldSettings;
 import net.neromc.prohub.Managers.CommandManager;
 import net.neromc.prohub.utils.Metrics;
 import net.neromc.prohub.utils.UpdateChecker;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,9 +14,16 @@ import java.util.logging.Level;
 
 public final class main extends JavaPlugin {
 
+
+
+
+
     @Override
     public void onEnable() {
-        // Plugin startup logic
+
+        new Spawn(this);
+
+
         long start = System.currentTimeMillis();
 
 
@@ -77,7 +85,7 @@ public final class main extends JavaPlugin {
     public void registerEvents() {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new WorldSettings(), this);
-        pm.registerEvents(new JoinLeaveEvents(), this);
+        pm.registerEvents(new JoinLeaveEvents(this), this);
 
 
     }
@@ -85,9 +93,11 @@ public final class main extends JavaPlugin {
     public void registerCommands() {
 
         getCommand("prohub").setExecutor(new CommandManager());
-        getCommand("spawn").setExecutor(new Spawn());
+    }
 
 
+    public String prefix() {
+        return getConfig().getString("Prefix");
     }
 }
 

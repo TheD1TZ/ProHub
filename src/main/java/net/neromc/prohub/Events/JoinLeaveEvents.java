@@ -1,12 +1,13 @@
 package net.neromc.prohub.Events;
 
-import de.Herbystar.TTA.TTA_Methods;
 import me.clip.placeholderapi.PlaceholderAPI;
+import net.neromc.prohub.Commands.Spawn;
 import net.neromc.prohub.main;
 import net.neromc.prohub.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Sound;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,8 +16,18 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 
 import java.util.List;
+import java.util.Objects;
 
 public class JoinLeaveEvents implements Listener {
+
+    private main plugin;
+
+    public JoinLeaveEvents(main main) {
+        this.plugin = main;
+    }
+
+
+
 
     Plugin pl = main.getPlugin(main.class);
 
@@ -33,7 +44,7 @@ public class JoinLeaveEvents implements Listener {
     int TitleFadeout = pl.getConfig().getInt("Title.fadeout");
     int TitleDuration = pl.getConfig().getInt("Title.duration");
 
-    String FirstJoinMessage = pl.getConfig().getString("FirstJoin");
+    String FirstJoinMessage = pl.getConfig().getString("FirstJoin.message");
     boolean FirstJoinMessageEnabled = pl.getConfig().getBoolean("FirstJoin.enabled");
 
     boolean MOTDEnabled = pl.getConfig().getBoolean("MOTD.enabled");
@@ -62,6 +73,16 @@ public class JoinLeaveEvents implements Listener {
 
         //Spawn Join
         if (SpawnJoinEnabled) {
+
+            World world = Bukkit.getWorld(Objects.requireNonNull(plugin.getConfig().getString("Lobby.world")));
+            double x = plugin.getConfig().getDouble("Lobby.location.x");
+            double y = plugin.getConfig().getDouble("Lobby.location.y");
+            double z = plugin.getConfig().getDouble("Lobby.location.z");
+            Float pitch = (Float) plugin.getConfig().get("Lobby.location.pitch");
+            Float yaw = (Float) plugin.getConfig().get("Lobby.location.yaw");
+            Location location = new Location(world, x, y, z, yaw,pitch);
+
+            player.teleport(location);
 
         }
 
