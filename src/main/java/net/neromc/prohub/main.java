@@ -1,6 +1,7 @@
 package net.neromc.prohub;
 
 import net.neromc.prohub.Events.JoinLeaveEvents;
+import net.neromc.prohub.Events.JumpPadEvents;
 import net.neromc.prohub.Events.WorldSettings;
 import net.neromc.prohub.command.CommandHandler;
 import net.neromc.prohub.utils.Metrics;
@@ -71,6 +72,7 @@ public final class main extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new WorldSettings(), this);
         getServer().getPluginManager().registerEvents(new JoinLeaveEvents(this), this);
+        getServer().getPluginManager().registerEvents(new JumpPadEvents(), this);
 
         //
 

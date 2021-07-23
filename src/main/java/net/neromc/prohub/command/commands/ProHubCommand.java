@@ -76,7 +76,7 @@ public class ProHubCommand extends CommandBase {
             else if (args[0].equalsIgnoreCase("reload")) {
                 if (player.hasPermission(Permissions.COMMAND_PROHUB_RELOAD.getPermission())) {
                     main.getInstance().reloadConfig();
-                    main.getInstance().saveConfig();
+                    main.getInstance().saveDefaultConfig();
                     player.sendMessage(Utils.Color(main.getInstance().prefix() + "&fReloaded the config!"));
                     return true;
                 }

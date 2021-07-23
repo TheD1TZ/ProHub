@@ -90,6 +90,33 @@ Lobby:
     yaw:
     pitch:
 
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+# | JumpPads                                 |
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+JumpPad:
+
+  enabled: true
+
+  message: true
+  launch-message: "&eWooooosh!"
+
+  #Get als sounds of Minecraft here https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
+  sounds: true
+  sound: "ENTITY_FIREWORK_ROCKET_LAUNCH"
+
+  #Get al Minecraft blocks here https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+  topblock: "STONE_PRESSURE_PLATE"
+  underblock: "REDSTONE_BLOCK"
+
+  y-velocity: 2
+  velocity-multiplier: 2
+
+
+
+
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
@@ -129,7 +156,7 @@ Tablist:
 
 Scoreboard:
 
-  enabled: false
+  enabled: true
 
   title: "&7-=&e&lProHub&7=-"
 

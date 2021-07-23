@@ -99,23 +99,25 @@ public class WorldSettings implements Listener {
     @EventHandler
     public void AntiVoid(EntityDamageEvent e) {
 
-        Player player = (Player) e.getEntity();
+        if (main.getInstance().getConfig().getString("Lobby.world") != null) {
 
-        if(disable_void_death) {
-            if (e.getEntity() instanceof Player) {
-                if (e.getCause().equals(EntityDamageEvent.DamageCause.VOID)) {
-                    e.setCancelled(true);
-                    SpawnCommand.SpawnTeleport(player);
+            if (disable_void_death) {
+                if (e.getEntity() instanceof Player) {
+                    if (e.getCause().equals(EntityDamageEvent.DamageCause.VOID)) {
+                        e.setCancelled(true);
+                        SpawnCommand.SpawnTeleport((Player) e.getEntity());
+                    }
                 }
-            }
-        if(!disable_void_death) {
-            if (e.getEntity() instanceof Player) {
-                if (e.getCause().equals(EntityDamageEvent.DamageCause.VOID)) {
-                    e.setCancelled(false);
+                if (!disable_void_death) {
+                    if (e.getEntity() instanceof Player) {
+                        if (e.getCause().equals(EntityDamageEvent.DamageCause.VOID)) {
+                            e.setCancelled(false);
+                        }
+                    }
                 }
             }
         }
-    }}
+    }
 
     @EventHandler
     public void fireDamage(EntityDamageEvent e) {

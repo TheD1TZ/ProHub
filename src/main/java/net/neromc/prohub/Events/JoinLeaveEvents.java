@@ -6,8 +6,6 @@ import net.neromc.prohub.main;
 import net.neromc.prohub.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,9 +13,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.List;
-import java.util.Objects;
-
-import static net.neromc.prohub.Managers.BossBarManager.createBossBar;
 
 public class JoinLeaveEvents implements Listener {
 
@@ -49,7 +44,6 @@ public class JoinLeaveEvents implements Listener {
     List MOTDmessage = main.getInstance().getConfig().getList("MOTD.message");
 
     boolean ScoreboardEnabled = main.getInstance().getConfig().getBoolean("Scoreboard.enabled");
-    String ScoreboardTitle = main.getInstance().getConfig().getString("Scoreboard.title");
     String ScoreboardLines = main.getInstance().getConfig().getString("Scoreboard.lines");
 
     boolean BossBarEnabled = main.getInstance().getConfig().getBoolean("BossBar.enabled");
@@ -104,8 +98,7 @@ public class JoinLeaveEvents implements Listener {
 
         //Scoreboard
         if (ScoreboardEnabled) {
-            String Title = PlaceholderAPI.setPlaceholders(player, ScoreboardTitle);
-            String Lines = PlaceholderAPI.setPlaceholders(player, ScoreboardLines);
+
         }
 
         //Join Title

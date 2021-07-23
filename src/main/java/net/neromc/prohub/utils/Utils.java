@@ -3,7 +3,6 @@ package net.neromc.prohub.utils;
 import net.neromc.prohub.main;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 
 
 public class Utils {
