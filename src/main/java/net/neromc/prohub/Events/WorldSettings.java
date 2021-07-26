@@ -10,13 +10,9 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockBurnEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.block.BlockSpreadEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.FoodLevelChangeEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.plugin.Plugin;
 
@@ -187,8 +183,8 @@ public class WorldSettings implements Listener {
     }}
 
     @EventHandler
-    public void itemPickedUp(PlayerPickupItemEvent e) {
-        if(!e.getPlayer().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
+    public void itemPickedUp(EntityPickupItemEvent e) {
+        if(!e.getEntity().hasPermission(Permissions.WORLD_SETTINGS_BYPASS.getPermission())){
         if(disable_item_pickup) {
             e.setCancelled(true);
         }

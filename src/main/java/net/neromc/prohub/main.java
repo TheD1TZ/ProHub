@@ -3,6 +3,7 @@ package net.neromc.prohub;
 import net.neromc.prohub.Events.JoinLeaveEvents;
 import net.neromc.prohub.Events.JumpPadEvents;
 import net.neromc.prohub.Events.WorldSettings;
+import net.neromc.prohub.Managers.AutoTab;
 import net.neromc.prohub.command.CommandHandler;
 import net.neromc.prohub.utils.Metrics;
 import net.neromc.prohub.utils.UpdateChecker;
@@ -61,6 +62,7 @@ public final class main extends JavaPlugin {
         //Commands loading
 
         new CommandHandler();
+        this.getCommand("prohub").setTabCompleter(new AutoTab());
 
         //
 
