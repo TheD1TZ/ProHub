@@ -1,6 +1,7 @@
 package net.neromc.prohub.Events;
 
 import me.clip.placeholderapi.PlaceholderAPI;
+import net.neromc.prohub.Managers.Bar;
 import net.neromc.prohub.command.commands.SpawnCommand;
 import net.neromc.prohub.main;
 import net.neromc.prohub.utils.Utils;
@@ -18,10 +19,11 @@ public class JoinLeaveEvents implements Listener {
 
     private main plugin;
 
+    public Bar bar;
+
     public JoinLeaveEvents(main main) {
         this.plugin = main;
     }
-
 
 
     String JoinMessage = main.getInstance().getConfig().getString("JoinMessage.message");
@@ -44,7 +46,6 @@ public class JoinLeaveEvents implements Listener {
     List MOTDmessage = main.getInstance().getConfig().getList("MOTD.message");
 
     boolean ScoreboardEnabled = main.getInstance().getConfig().getBoolean("Scoreboard.enabled");
-    String ScoreboardLines = main.getInstance().getConfig().getString("Scoreboard.lines");
 
     boolean BossBarEnabled = main.getInstance().getConfig().getBoolean("BossBar.enabled");
 
@@ -105,20 +106,21 @@ public class JoinLeaveEvents implements Listener {
         if (TitleEnabled) {
             String Title = PlaceholderAPI.setPlaceholders(player, TitleTitle);
             String SubTitle = PlaceholderAPI.setPlaceholders(player, TitleSubTitle);
-            player.sendTitle(Title,SubTitle,TitleFadein,TitleDuration,TitleFadeout);
+            player.sendTitle(Title, SubTitle, TitleFadein, TitleDuration, TitleFadeout);
         }
 
         //TabList
         if (TablistEnabled) {
             String Header = PlaceholderAPI.setPlaceholders(player, TabList(TabListHeader));
             String Footer = PlaceholderAPI.setPlaceholders(player, TabList(TabListFooter));
-            player.setPlayerListHeaderFooter(Header,Footer);
+            player.setPlayerListHeaderFooter(Header, Footer);
         }
 
         //Bossbar
         if (BossBarEnabled) {
-            //createBossBar(player);
-            //WIP
+            if (!plugin.getBar().getBar().getPlayers().contains(player)) {
+                plugin.getBar().addPlayer(player);
+            }
         }
     }
 

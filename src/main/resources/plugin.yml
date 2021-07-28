@@ -3,7 +3,7 @@ version: ${project.version}
 main: net.neromc.prohub.main
 api-version: 1.16
 authors: [ DitzGuntlisbergen ]
-description: A basic hub plugin made by NeroMC Development
+description: A basic hub plugin made by Ditz Guntlisbergen
 softdepend:
   - PlaceholderAPI
 website: neromc.net

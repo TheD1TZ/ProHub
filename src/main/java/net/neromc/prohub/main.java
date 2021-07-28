@@ -4,9 +4,12 @@ import net.neromc.prohub.Events.JoinLeaveEvents;
 import net.neromc.prohub.Events.JumpPadEvents;
 import net.neromc.prohub.Events.WorldSettings;
 import net.neromc.prohub.Managers.AutoTab;
+import net.neromc.prohub.Managers.Bar;
 import net.neromc.prohub.command.CommandHandler;
 import net.neromc.prohub.utils.Metrics;
 import net.neromc.prohub.utils.UpdateChecker;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Level;
@@ -19,10 +22,11 @@ public final class main extends JavaPlugin {
         return instance;
     }
 
-
     public String prefix() {
         return getConfig().getString("Prefix");
     }
+
+    public Bar bar;
 
     @Override
     public void onDisable() {
@@ -37,6 +41,8 @@ public final class main extends JavaPlugin {
 
         long start = System.currentTimeMillis();
 
+        bar = new Bar(this);
+        bar.createBar();
 
         int pluginID = 12085;
 
@@ -76,6 +82,11 @@ public final class main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new JoinLeaveEvents(this), this);
         getServer().getPluginManager().registerEvents(new JumpPadEvents(), this);
 
+
+        if (Bukkit.getOnlinePlayers().size() > 0)
+            for (Player on : Bukkit.getOnlinePlayers())
+                bar.addPlayer(on);
+
         //
 
         getLogger().log(Level.INFO, "ProHub || Events Done!");
@@ -94,13 +105,18 @@ public final class main extends JavaPlugin {
         this.saveDefaultConfig();
     }
 
-
+    public Bar getBar() {
+        return bar;
+    }
 }
 
 
 
 
 //Todo: Scoreboard
-//Todo: Jump Pads
 //Todo: Bossbars
-//Todo: Command Disabler
+/*Todo: Command Disabler
+    /prohub disabledcommands add [command]
+    /prohub disabledcommands remove [command]
+    /prohub disabledcommands list
+* */

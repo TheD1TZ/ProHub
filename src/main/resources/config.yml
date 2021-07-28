@@ -57,7 +57,8 @@ Title:
 
 # | MOTD Message                             |
 
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+#-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
 
 MOTD:
 
@@ -79,6 +80,7 @@ MOTD:
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
+
 Lobby:
 
   enabled: true
@@ -96,6 +98,7 @@ Lobby:
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
+
 JumpPad:
 
   enabled: true
@@ -104,19 +107,17 @@ JumpPad:
   launch-message: "&eWooooosh!"
 
   #Get als sounds of Minecraft here https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
+
   sounds: true
   sound: "ENTITY_FIREWORK_ROCKET_LAUNCH"
 
   #Get al Minecraft blocks here https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+
   topblock: "STONE_PRESSURE_PLATE"
   underblock: "REDSTONE_BLOCK"
 
   y-velocity: 2
   velocity-multiplier: 2
-
-
-
-
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
@@ -128,11 +129,6 @@ JumpPad:
 Tablist:
 
   enabled: true
-
-  # Should we refresh the tablist (update placeholders)?
-  refresh:
-    enabled: true
-    rate: 400 # In ticks (20 ticks = 1 second)
 
   header:
     - "&7-=&e&lProHub&7=-"
@@ -156,7 +152,7 @@ Tablist:
 
 Scoreboard:
 
-  enabled: true
+  enabled: false
 
   title: "&7-=&e&lProHub&7=-"
 
@@ -172,16 +168,28 @@ Scoreboard:
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
-# | Boss Bar          THIS FEATURE IS W.I.P  |
+# | Boss Bar    For now only up to 3 lines!  |
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 
 
 BossBar:
 
-  enabled: false
-  title:
-    - ""
+  enabled: true
+
+  title-1: "&7-= &e&lProHub&7 =-"
+  title-2: "&7-= &6&lProHub&7 =-"
+  title-3: "&7-= &e&lProHub&7 =-"
+
+  #Difrent barcolors
+  #WHITE, YELLOW, BLUE, GREEN, PINK, PURPLE, RED
+
+  barcolor-1: "YELLOW"
+  barcolor-2: "GREEN"
+  barcolor-3: "YELLOW"
+
+  #delay is in seconds
+  delay: 15
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
 

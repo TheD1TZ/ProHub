@@ -4,6 +4,7 @@ import net.neromc.prohub.command.CommandBase;
 import net.neromc.prohub.main;
 import net.neromc.prohub.utils.Permissions;
 import net.neromc.prohub.utils.Utils;
+import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -22,7 +23,7 @@ public class ProHubCommand extends CommandBase {
         player.sendMessage(Utils.Color(""));
         player.sendMessage(Utils.Color("&e&lPlayer Commands"));
         player.sendMessage(Utils.Color(""));
-        player.sendMessage(Utils.Color(" &7- &e/spawn &7- sends the player to the server spawn."));
+        player.sendMessage(Utils.Color(" &7- &e/spawn &7- &e/hub &7- &e/lobby &7- sends the player to the server spawn."));
         player.sendMessage(Utils.Color(""));
         player.sendMessage(Utils.Color("&e&lAdmin Commands"));
         player.sendMessage(Utils.Color(""));
@@ -72,7 +73,6 @@ public class ProHubCommand extends CommandBase {
 
 
             //Reload Command
-
             else if (args[0].equalsIgnoreCase("reload")) {
                 if (player.hasPermission(Permissions.COMMAND_PROHUB_RELOAD.getPermission())) {
                     main.getInstance().reloadConfig();
